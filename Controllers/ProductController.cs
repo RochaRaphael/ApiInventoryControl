@@ -34,11 +34,11 @@ namespace ApiInventoryControl.Controllers
 
         [HttpPost("v1/product")]
         public async Task<IActionResult> PostAsync(
-            [FromBody] Product model,
+            [FromBody] EditorProductViewModel model,
             [FromServices] InventoryDataContext context)
         {
             if (!ModelState.IsValid)
-                return BadRequest(new ResultViewModel<Category>(ModelState.GetErrors()));
+                return BadRequest(new ResultViewModel<Product>(ModelState.GetErrors()));
 
             try
             {
@@ -56,12 +56,49 @@ namespace ApiInventoryControl.Controllers
             }
             catch (DbUpdateException ex)
             {
-                return StatusCode(500, new ResultViewModel<Category>("05XE9 - Unable to add product"));
+                return StatusCode(500, new ResultViewModel<Product>("05XE9 - Unable to add product"));
             }
             catch
             {
-                return StatusCode(500, new ResultViewModel<Category>("05X10 - Internal server failure"));
+                return StatusCode(500, new ResultViewModel<Product>("05X10 - Internal server failure"));
             }
         }
+
+
+        [HttpPut("v1/product/{id:int}")]
+        public async Task<IActionResult> PutAsync(
+            [FromRoute] int id,
+            [FromBody] EditorProductViewModel model,
+            [FromServices] InventoryDataContext context)
+        {
+            try
+            {
+                var product = await context
+                    .Products
+                    .FirstOrDefaultAsync(x => x.Id == id);
+
+                if (product == null)
+                    return NotFound(new ResultViewModel<Product>("Product not found"));
+
+                product.Name = model.Name;
+                product.Price = model.Price;
+                product.Quantity = model.Quantity;
+                product.Category = model.Category;
+
+                context.Products.Update(product);
+                await context.SaveChangesAsync();
+
+                return Ok(new ResultViewModel<Product>(product));
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new ResultViewModel<Product>("05XE8 - Unable to change the product"));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ResultViewModel<Product>("05X11 - Internal server failure"));
+            }
+        }
+
     }
 }

@@ -19,7 +19,12 @@ namespace ApiInventoryControl.Data.Mapping
                 .IsRequired()
                 .HasColumnName("Name")
                 .HasColumnType("NVARCHAR")
-                .HasMaxLength(80);
+                .HasMaxLength(50);
+
+            builder.Property(x => x.Quantity)
+                .IsRequired()
+                .HasColumnName("Quantity")
+                .HasColumnType("INT");
 
             builder.Property(x => x.Price)
                 .IsRequired()
@@ -30,6 +35,7 @@ namespace ApiInventoryControl.Data.Mapping
                .HasOne(x => x.Category)
                .WithMany(x => x.Products)
                .HasConstraintName("FK_Product_Category");
+
         }
     }
 }

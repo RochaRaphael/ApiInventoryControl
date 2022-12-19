@@ -1,6 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using ApiInventoryControl.Data;
 
-app.MapGet("/", () => "Hello World!");
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<InventoryDataContext>();
+
+var app = builder.Build();
+app.MapControllers();
 
 app.Run();

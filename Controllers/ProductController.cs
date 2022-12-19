@@ -100,5 +100,37 @@ namespace ApiInventoryControl.Controllers
             }
         }
 
+
+
+        [HttpDelete("v1/product/{id:int}")]
+        public async Task<IActionResult> DeleteAsync(
+            [FromRoute] int id,
+            [FromServices] InventoryDataContext context)
+        {
+            try
+            {
+                var product = await context
+                    .Products
+                    .FirstOrDefaultAsync(x => x.Id == id);
+
+                if (product == null)
+                    return NotFound(new ResultViewModel<Product>("Product not found"));
+
+                context.Products.Remove(product);
+                await context.SaveChangesAsync();
+
+                return Ok(new ResultViewModel<Product>(product));
+            }
+            catch (DbUpdateException ex)
+            {
+                return StatusCode(500, new ResultViewModel<Product>("05XE7 - Unable to delete product"));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new ResultViewModel<Product>("05X12 - Internal server failure"));
+            }
+        }
+
+
     }
 }

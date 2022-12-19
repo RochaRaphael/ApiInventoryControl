@@ -1,4 +1,5 @@
-﻿using ApiInventoryControl.Models;
+﻿using ApiInventoryControl.Data.Mapping;
+using ApiInventoryControl.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiInventoryControl.Data
@@ -9,5 +10,11 @@ namespace ApiInventoryControl.Data
         public DbSet<Category> Categories { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlServer("Server=localhost,1433;Database=ApiLogin;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;");
-    }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new ProductMap());
+
+        }
 }

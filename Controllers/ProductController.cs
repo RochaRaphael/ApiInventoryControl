@@ -1,4 +1,6 @@
 ﻿using ApiInventoryControl.Data;
+using ApiInventoryControl.Models;
+using ApiInventoryControl.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,9 +19,9 @@ namespace ApiInventoryControl.Controllers
             {
                 var products = await context.Products.FirstOrDefaultAsync(x => x.Name == name);
                 if (products == null)
-                    return NotFound("Product not found");
-
-                return Ok(products);
+                    return NotFound(new ResultViewModel<Product>("Product not found"));
+                else
+                    return Ok(new ResultViewModel<Product>(products));
             }
             catch
             {

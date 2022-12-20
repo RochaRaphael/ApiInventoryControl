@@ -11,6 +11,6 @@ namespace ApiInventoryControl.Controllers
         {
             return Ok();
         }
-       
+               
     }
 }

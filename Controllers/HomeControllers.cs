@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApiInventoryControl.Attributes;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ApiInventoryControl.Controllers
 {

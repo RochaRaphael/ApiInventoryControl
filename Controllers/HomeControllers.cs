@@ -1,5 +1,4 @@
-﻿using ApiInventoryControl.Attributes;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace ApiInventoryControl.Controllers
 {
@@ -10,8 +9,8 @@ namespace ApiInventoryControl.Controllers
         [HttpGet("")]
         public IActionResult Get()
         {
-            return Ok();
+            return Ok("Olá pessoal");
         }
-               
+
     }
 }

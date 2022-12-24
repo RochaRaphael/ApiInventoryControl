@@ -15,19 +15,7 @@ namespace ApiInventoryControl.Controllers
     public class AccountController : ControllerBase
     {
 
-        [AllowAnonymous]
         [HttpPost("v1/login")]
-        public IActionResult Login(
-            [FromServices] TokenService tokenService
-            )
-        {
-            var token = tokenService.GenerateToken(null);
-
-            return Ok(token);
-        }
-
-
-        [HttpPost("v1/accounts/")]
         public async Task<IActionResult> Post(
         [FromBody] RegisterViewModel model,
         [FromServices] InventoryDataContext context)

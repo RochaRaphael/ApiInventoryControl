@@ -1,7 +1,8 @@
 # ApiInventoryControl
 
+Código em desenvolvimento!
 
-Essa API foi desenvolvida  com o foco de entender a utilização do JWT.
+Essa API tem o foco de entender a utilização do JWT.
 
 
 ## Padrão

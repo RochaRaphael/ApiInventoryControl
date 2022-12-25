@@ -6,7 +6,7 @@ Essa API tem o foco de entender a utilização do JWT.
 
 
 ## Padrão
-Usei o padrão MVC mas sem o View por enqunato, então usei apenas o "M" (Model) e o "C"(Controller).
+Função das pastas.
 
 A pasta `Data` faz parte do uso do Entity Framework, para fazer o mapeamento fluente. As configurações do mapeamento estão dentro da pasta `Mapping`.
 

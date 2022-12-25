@@ -56,12 +56,18 @@ Para que, possamos executar o `Entity Framework` no projeto, se faz necessário 
 > dotnet tool install --global dotnet-ef
 > dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 > dotnet add package Microsoft.EntityFrameworkCore.Design
-> dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 > dotnet restore
-> dotnet ef migrations add InitialCreate
+> dotnet ef migrations add InitialCreate2
 > dotnet ef database update
 ```
 --------------------------------------------
+### Para o token JWT funcioar, os seguintes comando para instalar os pacotes necesários
+```
+> dotnet add package Microsoft.AspNetCore.Authentication
+> dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 6
+```
+
+
 Para fazer requisições a API, use o Postman, [clique aqui](https://www.postman.com/downloads/) para baixar.
 
 Caso o Postman seja novo para você, [clique aqui](https://www.youtube.com/watch?v=op81bMbgZXs&t=252s> para ver esse vídeo do professor Vinicius Dias da Alura ensinando como usar o Postman.

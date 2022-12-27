@@ -3,16 +3,7 @@
 Código em desenvolvimento!
 
 Essa API tem o foco de entender a utilização do JWT.
-
-
-## Padrão
-Função das pastas.
-
-A pasta `Data` faz parte do uso do Entity Framework, para fazer o mapeamento fluente. As configurações do mapeamento estão dentro da pasta `Mapping`.
-
-A pasta `ViewModels` armazena um modelo de inserção de dados, já que não faz sentido o uso do Model.Login que exige a entrada de todos os dados, pois no mapeamento foi configurado que a propriedade ID será gerada automaticamente pelo banco de dados.
-
-O `ResulViewModel` foi feito para padronizar as respostas da API, assim facilitando o trabalho do Front-end que saberá o que esperar de retorno. 
+ 
 
 ---------------------------------------------
 Tecnologias usadas:

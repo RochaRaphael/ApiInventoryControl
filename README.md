@@ -2,9 +2,8 @@
 
 Código em desenvolvimento!
 
-Essa API tem o foco de entender a utilização do JWT.
+Essa API tem o foco de entender a utilização do JWT e melhoria na segurança das APIs.
  
-
 ---------------------------------------------
 Tecnologias usadas:
 - ASP.NET 6

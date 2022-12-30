@@ -10,12 +10,11 @@ using SecureIdentity.Password;
 
 namespace ApiInventoryControl.Controllers
 {
-    [Authorize]
     [ApiController]
     public class AccountController : ControllerBase
     {
 
-        [HttpPost("v1/login")]
+        [HttpPost("v1/accounts")]
         public async Task<IActionResult> Post(
         [FromBody] RegisterViewModel model,
         [FromServices] InventoryDataContext context)

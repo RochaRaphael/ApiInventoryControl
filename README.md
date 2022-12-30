@@ -1,18 +1,9 @@
 # ApiInventoryControl
 
+Código em desenvolvimento!
 
-Essa API foi desenvolvida  com o foco de entender a utilização do JWT.
-
-
-## Padrão
-Usei o padrão MVC mas sem o View por enqunato, então usei apenas o "M" (Model) e o "C"(Controller).
-
-A pasta `Data` faz parte do uso do Entity Framework, para fazer o mapeamento fluente. As configurações do mapeamento estão dentro da pasta `Mapping`.
-
-A pasta `ViewModels` armazena um modelo de inserção de dados, já que não faz sentido o uso do Model.Login que exige a entrada de todos os dados, pois no mapeamento foi configurado que a propriedade ID será gerada automaticamente pelo banco de dados.
-
-O `ResulViewModel` foi feito para padronizar as respostas da API, assim facilitando o trabalho do Front-end que saberá o que esperar de retorno. 
-
+Essa API tem o foco de entender a utilização do JWT e melhoria na segurança das APIs.
+ 
 ---------------------------------------------
 Tecnologias usadas:
 - ASP.NET 6
@@ -55,12 +46,18 @@ Para que, possamos executar o `Entity Framework` no projeto, se faz necessário 
 > dotnet tool install --global dotnet-ef
 > dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 > dotnet add package Microsoft.EntityFrameworkCore.Design
-> dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 > dotnet restore
-> dotnet ef migrations add InitialCreate
+> dotnet ef migrations add InitialCreate2
 > dotnet ef database update
 ```
 --------------------------------------------
+### Para o token JWT funcioar, os seguintes comando para instalar os pacotes necesários
+```
+> dotnet add package Microsoft.AspNetCore.Authentication
+> dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 6
+```
+
+
 Para fazer requisições a API, use o Postman, [clique aqui](https://www.postman.com/downloads/) para baixar.
 
 Caso o Postman seja novo para você, [clique aqui](https://www.youtube.com/watch?v=op81bMbgZXs&t=252s> para ver esse vídeo do professor Vinicius Dias da Alura ensinando como usar o Postman.

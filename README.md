@@ -39,6 +39,8 @@ Para executar localmente a aplicação você precisa entrar na pasta `ApiLogin` 
 
 ```
 > dotnet run
+ou 
+> dotnet watch
 ```
 
 Para que, possamos executar o `Entity Framework` no projeto, se faz necessário executar os seguintes comandos dentro da pasta HospitalWarehouse
@@ -51,6 +53,7 @@ Para que, possamos executar o `Entity Framework` no projeto, se faz necessário 
 > dotnet ef database update
 ```
 --------------------------------------------
+
 ### Para o token JWT funcioar, os seguintes comando para instalar os pacotes necesários
 ```
 > dotnet add package Microsoft.AspNetCore.Authentication

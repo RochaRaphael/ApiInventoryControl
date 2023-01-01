@@ -17,7 +17,6 @@ namespace ApiInventoryControl.Data
             modelBuilder.ApplyConfiguration(new CategoryMap());
             modelBuilder.ApplyConfiguration(new ProductMap());
             modelBuilder.ApplyConfiguration(new UserMap());
-
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ApiInventoryControl.Controllers
         [HttpGet("")]
         public IActionResult Get()
         {
-            return Ok("Olá pessoal");
+            return Ok("Hello, the API is working normally!");
         }
 
     }

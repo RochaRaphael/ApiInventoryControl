@@ -16,6 +16,6 @@ namespace ApiInventoryControl.ViewModels
         public int Quantity { get; set; }
 
         [Required(ErrorMessage = "Category is required")]
-        public Category Category { get; set; }
+        public string Category { get; set; }
     }
 }

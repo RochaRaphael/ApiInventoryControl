@@ -77,3 +77,7 @@ C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiI
 C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\ApiInventoryControl.pdb
 C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\obj\Debug\net6.0\ApiInventoryControl.genruntimeconfig.cache
 C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\obj\Debug\net6.0\ref\ApiInventoryControl.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

@@ -11,7 +11,29 @@ namespace ApiInventoryControl.Controllers
     public class ProductController : ControllerBase
     {
 
-        [HttpPost("v1/product")]
+        [HttpGet("v1/product/{id:int}")]
+        public async Task<IActionResult> GetByIdAsync(
+            [FromRoute] int id,
+            [FromServices] InventoryDataContext context)
+        {
+            try
+            {
+                var product = await context
+                    .Products
+                    .FirstOrDefaultAsync(x => x.Id == id);
+                
+                if(product == null)
+                    return NotFound(new ResultViewModel<Product>("Product not found"));
+
+                return Ok(new ResultViewModel<Product>(product));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new ResultViewModel<Product>("02X14 - Internal server failure"));
+            }
+        }
+
+            [HttpPost("v1/product")]
         public async Task<IActionResult> PostAsync(
             [FromBody] EditorProductViewModel model,
             [FromServices] InventoryDataContext context)
@@ -21,19 +43,37 @@ namespace ApiInventoryControl.Controllers
 
             try
             {
-                var product = new Product
+                Product newProduct;
+                var category = await context
+                    .Categories
+                    .FirstOrDefaultAsync(x => x.Name == model.Category);
+
+                if (category == null)
                 {
-                    Name = model.Name,
-                    Price = model.Price,
-                    Quantity = model.Quantity,
-                    Category = model.Category
-                };
-                await context.Products.AddAsync(product);
+                    newProduct = new Product
+                    {
+                        Name = model.Name,
+                        Price = model.Price,
+                        Quantity = model.Quantity,
+                        Category = new Category { Name = model.Category }
+                    };
+                }
+                else
+                {
+                    newProduct = new Product
+                    {
+                        Name = model.Name,
+                        Price = model.Price,
+                        Quantity = model.Quantity,
+                        Category = category
+                    };
+                }
+                await context.Products.AddAsync(newProduct);
                 await context.SaveChangesAsync();
 
-                return Created($"v1/categories/{product.Id}", new ResultViewModel<Product>(product));
+                return Created($"v1/categories/{newProduct.Id}", new ResultViewModel<Product>(newProduct));
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 return StatusCode(500, new ResultViewModel<Product>("05XE9 - Unable to add product"));
             }
@@ -57,23 +97,42 @@ namespace ApiInventoryControl.Controllers
                     .FirstOrDefaultAsync(x => x.Id == id);
 
                 if (product == null)
+                {
                     return NotFound(new ResultViewModel<Product>("Product not found"));
+                }
+                else
+                {
+                    var category = await context
+                        .Categories
+                        .FirstOrDefaultAsync(x => x.Name == model.Category);
 
-                product.Name = model.Name;
-                product.Price = model.Price;
-                product.Quantity = model.Quantity;
-                product.Category = model.Category;
+                    if (category == null)
+                    {
 
-                context.Products.Update(product);
-                await context.SaveChangesAsync();
+                        product.Name = model.Name;
+                        product.Price = model.Price;
+                        product.Quantity = model.Quantity;
+                        product.Category = new Category { Name = model.Category };
+                    }
+                    else
+                    {
+                        product.Name = model.Name;
+                        product.Price = model.Price;
+                        product.Quantity = model.Quantity;
+                        product.Category = category;
+                    }
 
-                return Ok(new ResultViewModel<Product>(product));
+                    context.Products.Update(product);
+                    await context.SaveChangesAsync();
+
+                    return Ok(new ResultViewModel<Product>(product));
+                }
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 return StatusCode(500, new ResultViewModel<Product>("05XE8 - Unable to change the product"));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new ResultViewModel<Product>("05X11 - Internal server failure"));
             }
@@ -100,11 +159,11 @@ namespace ApiInventoryControl.Controllers
 
                 return Ok(new ResultViewModel<Product>(product));
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 return StatusCode(500, new ResultViewModel<Product>("05XE7 - Unable to delete product"));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, new ResultViewModel<Product>("05X12 - Internal server failure"));
             }

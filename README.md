@@ -1,9 +1,9 @@
 # ApiInventoryControl
 
-API em desenvolvimento!
-
 Essa API tem o foco de entender a utilização do JWT e melhoria na segurança das APIs.
  
+ ### Proximas features
+ - Envio da senha por email
 ---------------------------------------------
 Tecnologias usadas:
 - ASP.NET 6

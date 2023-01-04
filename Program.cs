@@ -10,7 +10,6 @@ ConfigureAuthentication(builder);
 ConfigureMvc(builder);
 ConfigureServices(builder);
 
-builder.Services.AddTransient<TokenService>();
 var app = builder.Build();
 
 app.UseAuthentication();

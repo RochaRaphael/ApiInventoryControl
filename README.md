@@ -2,6 +2,8 @@
 
 Essa API tem o foco de entender a utilização do JWT e melhoria na segurança das APIs.
 Com ela conseguimos cadastrar usários, e fazer autenticação dos mesmos para uso de outras features, como o cadastro de produto.
+
+OBS: Foi feito dois tipos de autenticação, JWT e APIKey, mas os códigos que remetem a APIKey estão comentados por fim de estudo.
  
  ### Proximas features
  - Envio da senha por email

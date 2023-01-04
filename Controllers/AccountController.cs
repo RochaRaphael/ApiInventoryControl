@@ -3,7 +3,6 @@ using ApiInventoryControl.Extensions;
 using ApiInventoryControl.Models;
 using ApiInventoryControl.Services;
 using ApiInventoryControl.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SecureIdentity.Password;

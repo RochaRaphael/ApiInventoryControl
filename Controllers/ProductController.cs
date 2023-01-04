@@ -10,6 +10,7 @@ namespace ApiInventoryControl.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
+        
 
         [HttpGet("v1/product/{id:int}")]
         public async Task<IActionResult> GetByIdAsync(

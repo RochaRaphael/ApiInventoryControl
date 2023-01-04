@@ -1,6 +1,7 @@
 # ApiInventoryControl
 
 Essa API tem o foco de entender a utilização do JWT e melhoria na segurança das APIs.
+Com ela conseguimos cadastrar usários, e fazer autenticação dos mesmos para uso de outras features, como o cadastro de produto.
  
  ### Proximas features
  - Envio da senha por email

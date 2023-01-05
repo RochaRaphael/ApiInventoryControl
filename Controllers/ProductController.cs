@@ -2,6 +2,7 @@
 using ApiInventoryControl.Extensions;
 using ApiInventoryControl.Models;
 using ApiInventoryControl.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,8 +11,6 @@ namespace ApiInventoryControl.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-
-        
         [HttpGet("v1/product/{id:int}")]
         public async Task<IActionResult> GetByIdAsync(
             [FromRoute] int id,
@@ -35,7 +34,7 @@ namespace ApiInventoryControl.Controllers
             }
         }
 
-            [HttpPost("v1/product")]
+        [HttpPost("v1/product")]
         public async Task<IActionResult> PostAsync(
             [FromBody] EditorProductViewModel model,
             [FromServices] InventoryDataContext context)
@@ -85,7 +84,7 @@ namespace ApiInventoryControl.Controllers
             }
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPut("v1/product/{id:int}")]
         public async Task<IActionResult> PutAsync(
             [FromRoute] int id,
@@ -141,7 +140,7 @@ namespace ApiInventoryControl.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("v1/product/{id:int}")]
         public async Task<IActionResult> DeleteAsync(
             [FromRoute] int id,

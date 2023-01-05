@@ -12,6 +12,25 @@ namespace ApiInventoryControl.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        [HttpGet("v1/accounts/{id:int}")]
+        public async Task<IActionResult> GetByIdAsync(
+            [FromRoute] int id,
+            [FromServices] InventoryDataContext context)
+        {
+            try
+            {
+                var user = context
+                .Users
+                .AsNoTracking()
+                .FirstOrDefault(x => x.Id == id);
+
+                return Ok(new ResultViewModel<User>(user));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new ResultViewModel<Product>("01X18 - Internal server failure"));
+            }
+        }
 
         [HttpPost("v1/accounts")]
         public async Task<IActionResult> Post(

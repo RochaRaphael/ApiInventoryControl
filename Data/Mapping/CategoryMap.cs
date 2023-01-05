@@ -1,8 +1,10 @@
 ﻿using ApiInventoryControl.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiInventoryControl.Data.Mapping
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryMap : IEntityTypeConfiguration<Category>
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<Category> builder)

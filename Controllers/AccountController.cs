@@ -21,6 +21,7 @@ namespace ApiInventoryControl.Controllers
             {
                 var user = context
                 .Users
+                .Include(x => x.Roles)
                 .AsNoTracking()
                 .FirstOrDefault(x => x.Id == id);
 

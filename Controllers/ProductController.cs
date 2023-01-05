@@ -21,16 +21,17 @@ namespace ApiInventoryControl.Controllers
                 var product = await context
                     .Products
                     .AsNoTracking()
+                    .Include(x =>x.Category)
                     .FirstOrDefaultAsync(x => x.Id == id);
                 
                 if(product == null)
                     return NotFound(new ResultViewModel<Product>("Product not found"));
 
-                return Ok(new ResultViewModel<Product>(product));
+                return Ok(product);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500, new ResultViewModel<Product>("02X14 - Internal server failure"));
+                return StatusCode(500, new ResultViewModel<Product>("02X14 - Internal server failure" + ex.Message));
             }
         }
 

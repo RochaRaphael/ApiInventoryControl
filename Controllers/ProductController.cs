@@ -10,8 +10,8 @@ namespace ApiInventoryControl.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        
 
+        
         [HttpGet("v1/product/{id:int}")]
         public async Task<IActionResult> GetByIdAsync(
             [FromRoute] int id,
@@ -21,6 +21,7 @@ namespace ApiInventoryControl.Controllers
             {
                 var product = await context
                     .Products
+                    .AsNoTracking()
                     .FirstOrDefaultAsync(x => x.Id == id);
                 
                 if(product == null)

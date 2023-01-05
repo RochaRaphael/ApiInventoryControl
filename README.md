@@ -62,7 +62,12 @@ Para que, possamos executar o `Entity Framework` no projeto, se faz necessário 
 > dotnet add package Microsoft.AspNetCore.Authentication
 > dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer --version 6
 ```
+------------------------------------------- 
 
+### Foi usado o pacote SecureIdentity para fazer a encriptação da senha. Para adicionar o pacote, execute o comando
+```
+> dotnet add package SecureIdentity
+```
 
 Para fazer requisições a API, use o Postman, [clique aqui](https://www.postman.com/downloads/) para baixar.
 

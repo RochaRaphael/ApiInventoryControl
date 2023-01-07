@@ -2,6 +2,7 @@ using ApiInventoryControl;
 using ApiInventoryControl.Data;
 using ApiInventoryControl.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -11,6 +12,8 @@ ConfigureMvc(builder);
 ConfigureServices(builder);
 
 var app = builder.Build();
+
+Configuration.JwtKey = app.Configuration.GetValue<string>("JwtKey");
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -58,6 +61,10 @@ void ConfigureMvc(WebApplicationBuilder builder)
 
 void ConfigureServices(WebApplicationBuilder builder)
 {
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<InventoryDataContext>(
+        options =>
+            options.UseSqlServer(connectionString));
     builder.Services.AddDbContext<InventoryDataContext>();
     builder.Services.AddTransient<TokenService>();
 }

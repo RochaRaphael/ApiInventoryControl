@@ -15,6 +15,16 @@ var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
+if (app.Environment.IsDevelopment())
+{
+    Console.WriteLine("I'm in development environment!");
+}
+if (app.Environment.IsProduction())
+{
+    Console.WriteLine("I'm in production environment!");
+}
+
 app.Run();
 
 

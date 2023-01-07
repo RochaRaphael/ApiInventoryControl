@@ -81,3 +81,8 @@ C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiI
 C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\obj\Debug\net6.0\ApiInventoryControl.pdb
 C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\obj\Debug\net6.0\ApiInventoryControl.genruntimeconfig.cache
 C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\obj\Debug\net6.0\ref\ApiInventoryControl.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Raphael Rocha\Desktop\Projetos VS\Mentoria\5- API InventoryControl\ApiInventoryControl\obj\Debug\net6.0\ApiInventoryControl.MvcApplicationPartsAssemblyInfo.cs

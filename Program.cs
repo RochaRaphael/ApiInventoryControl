@@ -11,6 +11,9 @@ ConfigureAuthentication(builder);
 ConfigureMvc(builder);
 ConfigureServices(builder);
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 Configuration.JwtKey = app.Configuration.GetValue<string>("JwtKey");
@@ -22,6 +25,8 @@ app.MapControllers();
 if (app.Environment.IsDevelopment())
 {
     Console.WriteLine("I'm in development environment!");
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 if (app.Environment.IsProduction())
 {

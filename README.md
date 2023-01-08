@@ -5,8 +5,9 @@ Com ela conseguimos cadastrar usários, e fazer autenticação dos mesmos para u
 
 OBS: Foi feito dois tipos de autenticação, JWT e APIKey, mas os códigos que remetem a APIKey estão comentados por fim de estudo.
  
- ### Proximas features
+ ### Proximas melhorias
  - Envio da senha por email
+ - Fazer deploy
 ---------------------------------------------
 Tecnologias usadas:
 - ASP.NET 6

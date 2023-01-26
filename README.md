@@ -7,7 +7,6 @@ OBS: Foi feito dois tipos de autenticação, JWT e APIKey, mas os códigos que r
  
  ### Proximas melhorias
  - Envio da senha por email
- - Fazer deploy
 ---------------------------------------------
 Tecnologias usadas:
 - ASP.NET 6

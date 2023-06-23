@@ -4,6 +4,7 @@ Essa API tem o foco de entender a utilização do JWT e melhoria na segurança d
 Com ela conseguimos cadastrar usários, e fazer autenticação dos mesmos para uso de outras features, como o cadastro de produto.
 
 OBS: Foi feito dois tipos de autenticação, JWT e APIKey, mas os códigos que remetem a APIKey estão comentados por fim de estudo.
+
  
  ### Proximas melhorias
  - Envio da senha por email
@@ -75,4 +76,5 @@ Caso o Postman seja novo para você, [clique aqui](https://www.youtube.com/watch
 
 # Tenho Dúvidas... O que Faço?! ❓
 Caso tenham dúvidas aos códigos desenvolvidos aqui, sintam-se a vontade em abrir uma [ISSUE AQUI](https://github.com/RochaRaphael/ApiInventoryControl/issues). Assim que possível, estarei respondendo as todas as dúvidas que tiverem!
+
 
